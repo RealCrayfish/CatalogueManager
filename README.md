@@ -1,2 +1,1 @@
-# CatalogueManager
-An inventory manager for a university assignment.
+To run this in InteliJ Idea, use the `App` build configuration or click the button in markdown preview mode.

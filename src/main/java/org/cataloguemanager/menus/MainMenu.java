@@ -1,17 +1,25 @@
 package org.cataloguemanager.menus;
 
+import org.cataloguemanager.App;
 import org.cataloguemanager.utils.TerminalUtils;
 
 import java.util.Scanner;
 
 public class MainMenu {
     public static void run(Scanner scanner) {
+        int reminders;
         boolean running = true;
         while (running) {
             TerminalUtils.displayLogo();
+
+            reminders = ReminderMenu.getReminderCount();
+            if (reminders > 0) {
+                IO.println("You have "+reminders+" reminder(s)\n");
+            }
+
             IO.println("1: Items");
             IO.println("2: Users");
-            IO.println("3: Admin Panel");
+            IO.println("3: Reminders");
             IO.println("0: Quit");
             IO.println("");
 
@@ -25,7 +33,7 @@ public class MainMenu {
                     UsersMenu.run(scanner);
                     break;
                 case "3":
-                    AdminMenu.run(scanner); // NOTE: May not be necessary. Read the assignment brief.
+                    ReminderMenu.run(scanner);
                     break;
                 case "0":
                     IO.println("Exiting...");
